@@ -1,7 +1,5 @@
 package it.extremegeneration.timetocook.fragments;
 
-import android.app.Activity;
-import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,15 +10,10 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import it.extremegeneration.timetocook.R;
 import it.extremegeneration.timetocook.activities.SearchableActivity;
@@ -30,6 +23,9 @@ import it.extremegeneration.timetocook.dataModel.CookingContract;
 
 public class SearchableFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<Cursor> {
+
+    public static final String LOG_TAG = SearchableFragment.class.getSimpleName();
+
 
 
     public String query;

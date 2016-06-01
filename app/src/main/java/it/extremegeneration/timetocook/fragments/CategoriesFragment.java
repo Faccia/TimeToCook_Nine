@@ -1,6 +1,5 @@
 package it.extremegeneration.timetocook.fragments;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,6 +20,9 @@ import it.extremegeneration.timetocook.dataModel.CookingContract;
 
 public class CategoriesFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<Cursor> {
+
+    public static final String LOG_TAG = CategoriesFragment.class.getSimpleName();
+
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 

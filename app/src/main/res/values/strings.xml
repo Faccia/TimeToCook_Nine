@@ -8,6 +8,7 @@
     <string name="tab_home">Home</string>
     <string name="tab_categories">Categories</string>
     <string name="tab_fav">Favourites</string>
+    <string name="tab_active_timers">Active Timers</string>
 
     <string name="btn_search">Search</string>
 

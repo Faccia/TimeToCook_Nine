@@ -4,7 +4,6 @@ import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -18,7 +17,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.widget.TextView;
 
 import java.util.Locale;
 
@@ -32,11 +30,6 @@ import it.extremegeneration.timetocook.fragments.SteamFragment;
 public class DetailActivity extends AppCompatActivity {
 
     public static final String LOG_TAG = DetailActivity.class.getSimpleName();
-
-    TextView nameFoodTest;
-    TextView steamTextView;
-    TextView boilingTextView;
-    TextView fireTextView;
 
     private boolean booleanSteam;
     private boolean booleanBoiling;
@@ -114,12 +107,6 @@ public class DetailActivity extends AppCompatActivity {
         mTabLayout = (TabLayout) findViewById(R.id.activity_detail_tabLayout);
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setTabMode(TabLayout.MODE_FIXED);
-
-
-        //nameFoodTest = (TextView) findViewById(R.id.activity_detail_textView);
-        //fireTextView = (TextView) findViewById(R.id.fire);
-        //boilingTextView = (TextView) findViewById(R.id.boiling);
-        //steamTextView = (TextView) findViewById(R.id.steam);
 
         if (savedInstanceState == null) {
             //*****PASS THE URI or the ID TO THE FRAGMENT

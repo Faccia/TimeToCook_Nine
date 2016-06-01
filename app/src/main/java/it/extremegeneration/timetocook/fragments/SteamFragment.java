@@ -13,6 +13,9 @@ import it.extremegeneration.timetocook.R;
  */
 public class SteamFragment extends Fragment {
 
+    public static final String LOG_TAG = SteamFragment.class.getSimpleName();
+
+
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     public static SteamFragment newInstance (int sectionNumber){

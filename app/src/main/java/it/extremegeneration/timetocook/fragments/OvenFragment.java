@@ -14,6 +14,9 @@ import it.extremegeneration.timetocook.R;
  */
 public class OvenFragment extends Fragment {
 
+    public static final String LOG_TAG = OvenFragment.class.getSimpleName();
+
+
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     public static OvenFragment newInstance (int sectionNumber){

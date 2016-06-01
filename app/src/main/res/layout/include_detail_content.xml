@@ -62,6 +62,7 @@
                 style="@style/Base.TextAppearance.AppCompat.Headline"/>
 
             <ImageView
+                android:id="@+id/bnt_timerStart_full"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_columnWeight="1"
@@ -86,6 +87,7 @@
                 style="@style/Base.TextAppearance.AppCompat.Headline"/>
 
             <ImageView
+                android:id="@+id/bnt_timerStart_pieces"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_columnWeight="1"
@@ -111,6 +113,7 @@
                 style="@style/Base.TextAppearance.AppCompat.Headline"/>
 
             <ImageView
+                android:id="@+id/bnt_timerStart_frozen"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_columnWeight="1"
@@ -136,7 +139,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cooking Tips (Pasta Bible)"
+                android:text="Cooking Tips"
                 android:layout_margin="8dp"
                 style="@style/Base.TextAppearance.AppCompat.Headline"/>
 

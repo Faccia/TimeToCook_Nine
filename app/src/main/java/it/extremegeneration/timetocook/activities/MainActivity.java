@@ -21,12 +21,16 @@ import android.view.MenuItem;
 import java.util.Locale;
 
 import it.extremegeneration.timetocook.R;
+import it.extremegeneration.timetocook.fragments.ActiveTimersFragment;
 import it.extremegeneration.timetocook.fragments.CategoriesFragment;
 import it.extremegeneration.timetocook.fragments.FavFragment;
 import it.extremegeneration.timetocook.fragments.MainFragment;
 import it.extremegeneration.timetocook.fragments.SearchFragment;
 
 public class MainActivity extends AppCompatActivity implements MainFragment.Callback {
+
+    public static final String LOG_TAG = MainActivity.class.getSimpleName();
+
 
     private SectionPagerAdapter mSectionPagerAdapter;
     private ViewPager mViewPager;
@@ -115,13 +119,15 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Call
                     return CategoriesFragment.newInstance(position + 1);
                 case 2:
                     return FavFragment.newInstance(position + 1);
+                case 3:
+                    return ActiveTimersFragment.newInstance(position+1);
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
 
         @Override
@@ -134,6 +140,9 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Call
                     return getString(R.string.tab_categories).toUpperCase(locale);
                 case 2:
                     return getString(R.string.tab_fav).toUpperCase(locale);
+                case 3:
+                    return getString(R.string.tab_active_timers).toUpperCase(locale);
+
             }
 
             return null;

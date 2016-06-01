@@ -19,6 +19,9 @@ import it.extremegeneration.timetocook.fragments.SearchableFragment;
 
 public class SearchableActivity extends AppCompatActivity {
 
+    public static final String LOG_TAG = SearchableActivity.class.getSimpleName();
+
+
     public static final String QUERY_FOR_BUNDLE = "query";
     private Toolbar mToolbar;
 

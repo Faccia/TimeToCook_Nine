@@ -1,6 +1,5 @@
 package it.extremegeneration.timetocook.fragments;
 
-import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +21,9 @@ import it.extremegeneration.timetocook.dataModel.CookingContract;
 
 public class MainFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<Cursor> {
+
+    public static final String LOG_TAG = MainFragment.class.getSimpleName();
+
 
     //RECYCLER VIEW
     private RecyclerView recyclerView;
