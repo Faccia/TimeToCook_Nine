@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?android:attr/listPreferredItemHeight">
+
+    <ImageView
+        android:id="@+id/icon_food_searchable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:padding="16dp"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/text_food_searchable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cibo cibo"
+        android:layout_gravity="center"
+        android:textSize="24sp"/>
+
+
+</LinearLayout>

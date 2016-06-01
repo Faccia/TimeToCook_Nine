@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Time To Cook</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Names of tabs in main activity -->
+    <string name="tab_home">Home</string>
+    <string name="tab_categories">Categories</string>
+    <string name="tab_fav">Favourites</string>
+
+    <string name="btn_search">Search</string>
+
+    <!-- Names of tabs in detail activity -->
+    <string name="tab_fire">Pan</string>
+    <string name="tab_boil">Boil</string>
+    <string name="tab_oven">Oven</string>
+    <string name="tab_steam">Steam</string>
+
+
+    <string name="food_COLUMN_NAME">name</string>
+
+
+</resources>

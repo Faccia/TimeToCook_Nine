@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:hint="HINT"
+    android:label="@string/app_name"
+
+    android:includeInGlobalSearch="true"
+
+
+    android:searchSuggestAuthority="it.extremegeneration.timetocook.app"
+
+    android:searchSuggestIntentAction="android.intent.action.VIEW"
+    android:searchSuggestIntentData="searchSuggestProvaa"
+
+    android:searchSuggestThreshold="1"
+
+    android:searchSuggestSelection=" ?"
+    android:voiceSearchMode="showVoiceSearchButton|launchRecognizer"
+
+    android:searchSettingsDescription="prova ricerca"
+
+    />
+
+
+
+
+    <!--android:searchSuggestIntentData=""-->
+
+
+
+    <!-- searchSuggestIntentData:  it defines a Uri pattern for the Intent triggered
+         when the user clicks in a suggestion. -->
+
+    <!-- searchSuggestIntentAction: When the user selects a suggestion in the list,
+    a new activity will be called using the action described in android -->
+
+    <!--android:searchSuggestIntentData="content://it.extremegeneration.timetocook.app"-->
