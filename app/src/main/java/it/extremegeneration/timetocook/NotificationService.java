@@ -9,7 +9,11 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
@@ -28,7 +32,6 @@ public class NotificationService extends Service {
     public static final String TIME_INFO = "time_info";
     public static final String PAUSE_RESUME_INFO = "pause_resume_info";
 
-    long enteredTimeFormatted;
     CountDownTimer timer;
     NotificationCompat.Builder builder;
 
@@ -45,27 +48,97 @@ public class NotificationService extends Service {
     public static final String TIME_OF_COOKING = "time_of_cooking";
     public static final String NAME_OF_FOOD = "name_of_food";
 
+    public int id_food;
+    public String nameOfFood;
+    public long enteredTimeFormatted;
 
-    private int id_food;
-    private String nameOfFood;
+
+    private Looper mServiceLooper;
+    private ServiceHandler mServiceHandler;
+
+
+    private final class ServiceHandler extends Handler {
+
+
+        public ServiceHandler(Looper looper) {
+            super(looper);
+
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            // Normally we would do some work here, like download a file.
+            // For our sample, we just sleep for 5 seconds.
+            try {
+                showCountDownTimer(enteredTimeFormatted);
+                showNotification(nameOfFood, id_food);
+                timer.start();
+            } catch (Exception e) {
+                // Restore interrupt status.
+                Thread.currentThread().interrupt();
+            }
+            // Stop the service using the startId, so that we don't stop
+            // the service in the middle of handling another job
+            stopSelf(msg.arg1);
+        }
+    }
+
+    @Override
+    public void onCreate() {
+        // Start up the thread running the service.  Note that we create a
+        // separate thread because the service normally runs in the process's
+        // main thread, which we don't want to block.  We also make it
+        // background priority so CPU-intensive work will not disrupt our UI.
+
+
+//        HandlerThread thread = new HandlerThread("ServiceStartArguments",
+//                android.os.Process.THREAD_PRIORITY_BACKGROUND);
+//        thread.start();
+//
+//        // Get the HandlerThread's Looper and use it for our Handler
+//        mServiceLooper = thread.getLooper();
+//        mServiceHandler = new ServiceHandler(mServiceLooper);
+    }
 
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        // For each start request, send a message to start a job and deliver the
+
 
         if (intent.getAction().equals(Constants.ACTION.START_FOREGROUND_ACTION)) {
             IS_RUNNING = true;
             Log.i(LOG_TAG, "Received Start Foreground Intent");
+
+            // id of the food = id of a notification
             id_food = intent.getIntExtra(ID_FOOD, 0);
+            // getting time of cooking pressed
             int timeOfCooking = intent.getIntExtra(TIME_OF_COOKING, 0);
+            // getting name of the food for the title of the notification
             nameOfFood = intent.getStringExtra(NAME_OF_FOOD);
             enteredTimeFormatted = timeOfCooking * 60000;
+
             Log.i(LOG_TAG, "id of food passed= " + id_food + "/" + nameOfFood);
             Log.i(LOG_TAG, "time of cooking passed= " + timeOfCooking);
-            showNotification(nameOfFood, id_food);
-            showCountDownTimer(enteredTimeFormatted);
-            timer.start();
+
+            HandlerThread thread = new HandlerThread("ServiceStartArguments",
+                    android.os.Process.THREAD_PRIORITY_BACKGROUND);
+            thread.start();
+
+            // Get the HandlerThread's Looper and use it for our Handler
+            mServiceLooper = thread.getLooper();
+            mServiceHandler = new ServiceHandler(mServiceLooper);
+
+
+            // start ID so we know which request we're stopping when we finish the job
+            Message msg = mServiceHandler.obtainMessage();
+            msg.arg1 = startId;
+            mServiceHandler.sendMessage(msg);
+
+//            showNotification(nameOfFood, id_food);
+//            showCountDownTimer(enteredTimeFormatted);
+//            timer.start();
         } else if (intent.getAction().equals(Constants.ACTION.PAUSE_ACTION)) { // Btn pause
             IS_RUNNING = false;
             Log.i(LOG_TAG, "Pressed Pause");
@@ -138,11 +211,6 @@ public class NotificationService extends Service {
         Log.d(LOG_TAG, "id of notification, show notification = " + id_food);
     }
 
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
 
     @Override
     public void onDestroy() {
@@ -289,8 +357,6 @@ public class NotificationService extends Service {
 
 
     }
-
-
 
 
 }

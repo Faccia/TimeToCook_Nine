@@ -139,6 +139,8 @@ public class BoilingFragment extends Fragment implements View.OnClickListener {
             case R.id.bnt_timerStart_full:
                 serviceIntent.putExtra(NotificationService.TIME_OF_COOKING, timeFull);
                 getActivity().startService(serviceIntent);
+
+                
                 break;
             case R.id.bnt_timerStart_pieces:
                 serviceIntent.putExtra(NotificationService.TIME_OF_COOKING, timePieces);
@@ -151,4 +153,7 @@ public class BoilingFragment extends Fragment implements View.OnClickListener {
         }
 
     }
+
+
+
 }
