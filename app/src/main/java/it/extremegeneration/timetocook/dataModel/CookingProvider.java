@@ -13,7 +13,6 @@ import android.provider.BaseColumns;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-
 public class CookingProvider extends ContentProvider {
 
     private static final String LOG = CookingProvider.class.getSimpleName();
@@ -143,7 +142,7 @@ public class CookingProvider extends ContentProvider {
                 retCursor = cookingDBHelper.getWritableDatabase().query(
                         CookingContract.FoodEntry.TABLE_NAME,
                         projection,
-                        CookingContract.FoodEntry._ID + " =?",
+                        CookingContract.FoodEntry.COLUMN_ID + " =?",
                         new String[]{Long.toString(food_id)},
                         null,
                         null,
@@ -208,7 +207,7 @@ public class CookingProvider extends ContentProvider {
                 retCursor = cookingDBHelper.getWritableDatabase().query(
                         CookingContract.BoilingEntry.TABLE_NAME,
                         projection,
-                        CookingContract.BoilingEntry._ID + " =?",
+                        CookingContract.BoilingEntry.COLUMN_ID_FOOD + " =?",
                         new String[]{Long.toString(boiling_id)},
                         null,
                         null,
@@ -235,7 +234,7 @@ public class CookingProvider extends ContentProvider {
                 retCursor = cookingDBHelper.getWritableDatabase().query(
                         CookingContract.FireEntry.TABLE_NAME,
                         projection,
-                        CookingContract.FireEntry._ID + " =?",
+                        CookingContract.FireEntry.COLUMN_ID_FOOD + " =?",
                         new String[]{Long.toString(fire_id)},
                         null,
                         null,
@@ -260,7 +259,7 @@ public class CookingProvider extends ContentProvider {
                 retCursor = cookingDBHelper.getWritableDatabase().query(
                         CookingContract.SteamEntry.TABLE_NAME,
                         projection,
-                        CookingContract.SteamEntry._ID + " =?",
+                        CookingContract.SteamEntry.COLUMN_ID_FOOD + " =?",
                         new String[]{Long.toString(steam_id)},
                         null,
                         null,
@@ -285,7 +284,7 @@ public class CookingProvider extends ContentProvider {
                 retCursor = cookingDBHelper.getWritableDatabase().query(
                         CookingContract.OvenEntry.TABLE_NAME,
                         projection,
-                        CookingContract.OvenEntry._ID +" =?",
+                        CookingContract.OvenEntry.COLUMN_ID_FOOD +" =?",
                         new String[]{Long.toString(oven_id)},
                         null,
                         null,
@@ -311,13 +310,16 @@ public class CookingProvider extends ContentProvider {
     }
 
 
+    //To get suggestion when the User types something in the SearchView
     private Cursor getSuggestion(String query) {
         query = query.toLowerCase();
+
         String[] columns = new String[]{
                 BaseColumns._ID,
                 CookingContract.FoodEntry.COLUMN_ID,
                 CookingContract.FoodEntry.COLUMN_NAME,
-                CookingContract.FoodEntry.COLUMN_DESCRIPTION,
+                CookingContract.FoodEntry.COLUMN_ICON_FOOD
+//                CookingContract.FoodEntry.COLUMN_DESCRIPTION,
         };
 
 

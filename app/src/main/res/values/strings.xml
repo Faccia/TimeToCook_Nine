@@ -20,6 +20,15 @@
 
 
     <string name="food_COLUMN_NAME">name</string>
+    <string name="food_COLUMN_DESCRIPTION">description</string>
+    <string name="category_COLUMN_NAME">category_name</string>
+    <string name="steam_COLUMN_TIPS">tips</string>
+    <string name="oven_COLUMN_TIPS">tips</string>
+    <string name="fire_COLUMN_TIPS">tips</string>
+    <string name="boiling_COLUMN_TIPS">tips</string>
+
+
+
 
 
 </resources>

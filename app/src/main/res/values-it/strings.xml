@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="food_COLUMN_NAME">name_it</string>
+    <string name="food_COLUMN_DESCRIPTION">description_it</string>
+    <string name="category_COLUMN_NAME">category_name_it</string>
+    <string name="steam_COLUMN_TIPS">tips_it</string>
+    <string name="oven_COLUMN_TIPS">tips_it</string>
+    <string name="fire_COLUMN_TIPS">tips_it</string>
+    <string name="boiling_COLUMN_TIPS">tips_it</string>
+
+
+
 
 </resources>

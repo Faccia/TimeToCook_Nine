@@ -2,9 +2,7 @@ package it.extremegeneration.timetocook.dataModel;
 
 import android.app.SearchManager;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteQueryBuilder;
 import android.provider.BaseColumns;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
@@ -15,7 +13,7 @@ import java.util.HashMap;
 public class FoodDatabase {
 
     private static final String DATABASE_NAME = "cookingDB.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     public final CookingDBHelper cookingDBHelper;
 
@@ -36,6 +34,9 @@ public class FoodDatabase {
                 CookingContract.FoodEntry.COLUMN_DESCRIPTION + " as " + SearchManager.SUGGEST_COLUMN_TEXT_2);
         map.put(CookingContract.FoodEntry.COLUMN_ID,
                 CookingContract.FoodEntry.COLUMN_ID + " as " + SearchManager.SUGGEST_COLUMN_INTENT_DATA_ID);
+
+        map.put(CookingContract.FoodEntry.COLUMN_ICON_FOOD,
+                CookingContract.FoodEntry.COLUMN_ICON_FOOD + " as " + SearchManager.SUGGEST_COLUMN_ICON_1);
 
         return map;
     }

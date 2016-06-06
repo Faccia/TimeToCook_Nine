@@ -53,6 +53,7 @@
                 style="@style/Base.TextAppearance.AppCompat.Headline"/>
 
             <TextView
+                android:id="@+id/detail_time_full_textView"
                 android:layout_width="0dp"
                 app:layout_columnWeight="2"
                 android:gravity="center"
@@ -78,6 +79,7 @@
                 android:text="Pieces"
                 style="@style/Base.TextAppearance.AppCompat.Headline"/>
             <TextView
+                android:id="@+id/detail_time_pieces_textView"
                 android:layout_width="0dp"
                 app:layout_columnWeight="1"
                 android:gravity="center"
@@ -104,6 +106,7 @@
                 android:text="Frozen"
                 style="@style/Base.TextAppearance.AppCompat.Headline"/>
             <TextView
+                android:id="@+id/detail_time_frozen_textView"
                 android:layout_width="0dp"
                 app:layout_columnWeight="1"
                 android:gravity="center"

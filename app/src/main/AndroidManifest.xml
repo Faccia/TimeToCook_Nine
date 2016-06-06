@@ -51,6 +51,8 @@
                 android:value=".activities.MainActivity" />
         </activity>
 
+        <service android:name=".NotificationService"/>
+
 
     </application>
 
